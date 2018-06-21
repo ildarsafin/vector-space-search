@@ -37,7 +37,7 @@ class VectorCompare:
 
     if magnitudeOfVectors == 0:
       return 0
-    
+
     return topValue / magnitudeOfVectors
 
 
@@ -49,7 +49,7 @@ class VectorCompare:
     for word in document.split(' '):
       if word in vector:
         vector[word] += 1
-      else: 
+      else:
         vector[word] = 1
 
     return vector
@@ -61,11 +61,11 @@ class VectorCompare:
     matches = []
     for i in range(len(self.wordVectors)):
       relation = v.relation(vectorizedSearchTerm, self.wordVectors[i])
-      
+
       if relation != 0:
         matches.append((relation, self.documents[i]))
 
-    matches.reverse()
+    matches.sort(reverse=True)
 
     return matches
 
